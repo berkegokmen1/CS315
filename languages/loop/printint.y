@@ -3,15 +3,19 @@
 %%
 lines: /* empty */
 		 	| lines NEWLINE
-		 	| lines value NEWLINE { printf(" =%d\n", $2); }
-		 	| error NEWLINE { yyerror("! Reenter: "); yyerrok; }
+		 	| lines line NEWLINE { printf("%d) =%d\n", lineno, $2); }
+		 	| error NEWLINE { printf("Error in line %d! Reenter: ", lineno); yyerrok; }
 			;
 
-value: INTEGER { $$ = $1; }
+line: INTEGER { $$ = $1; }
 			;
 %%
 #include "lex.yy.c"
+
+int lineno = 0;
+
 void yyerror(char *s) { printf("%s", s); }
+
 int main() {
 	return yyparse();
 }
