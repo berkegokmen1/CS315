@@ -39,3 +39,9 @@ input
 scanner
 
 ignore/
+
+22002105_Gokmen_AhmetBerke
+
+target/
+
+Cargo.*

@@ -12,7 +12,7 @@ my %employees = (
 	"Sam" => 39
 );
 
-printf("Sue is %d \n", $employees{Sue})
+printf("Sue is %d \n", $employees{"Sue"})
 
 # $employees{"Frank"} = 44;
 
