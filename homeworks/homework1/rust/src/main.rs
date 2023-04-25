@@ -4,7 +4,17 @@ fn main() {
     println!("empty_v: {empty_v:?}");
 
     // Initialize a list with some values
-    let mut v: Vec<i32> = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let mut v: Vec<String> = vec![
+        "Apple".to_string(),
+        "Avocado".to_string(),
+        "Dragonfruit".to_string(),
+        "Grapefruit".to_string(),
+        "Grapes".to_string(),
+        "Hazelnut".to_string(),
+        "Kiwi".to_string(),
+        "Lime".to_string(),
+        "Tangelo".to_string(),
+    ];
     println!("v: {v:?}");
 
     // Check if the list is empty or not
@@ -12,21 +22,19 @@ fn main() {
     println!("is_empty: {is_empty}");
 
     // Add a new element to a list
-    v.push(10);
-    v.extend([11]);
+    v.push("Melon".to_string());
+    v.extend(["Raspberries".to_string()]);
     println!("v after push and extend: {v:?}");
 
     // Check if a particular element exists in the list
-    let does_5_exist: bool = v.contains(&5);
-    let does_50_exist: bool = v.iter().any(|e| e == &50); // slightly more complicated way
-    println!("does_5_exist: {does_5_exist}, does_50_exist, {does_50_exist}");
+    let does_melon_exist: bool = v.contains(&"Melon".to_string());
+    let does_cherries_exist: bool = v.iter().any(|e| e == &"cherries".to_string()); // slightly more complicated way
+    println!("does_melon_exist: {does_melon_exist}, does_cherries_exist, {does_cherries_exist}");
 
     // Remove a particular element from the list
-    let index = v.iter().position(|e| *e == 5).unwrap();
-    v.remove(index); // remove 5 from the list, basic way
-
-    v = v.iter().filter(|&&e| e != 4).map(|&e| e as i32).collect(); // remove 4, a little complicated
-    println!("v after removing 4 and 5: {v:?}");
+    let index = v.iter().position(|e| *e == "Melon".to_string()).unwrap();
+    v.remove(index); // remove Melon from the list, basic way
+    println!("v after removing Melon: {v:?}");
     v.remove(1); // remove at index 1
     println!("v after removing index 1: {v:?}");
 
@@ -35,5 +43,8 @@ fn main() {
     println!("head: {head}, tail: {tail:?}");
 
     // Print all of the elements in the list
-    v.iter().for_each(|&e| println!("{e}"));
+    v.iter().for_each(|e| {
+        let x = &*e;
+        println!("{x}");
+    });
 }
