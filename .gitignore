@@ -45,3 +45,5 @@ ignore/
 target/
 
 Cargo.*
+
+.DS_Store

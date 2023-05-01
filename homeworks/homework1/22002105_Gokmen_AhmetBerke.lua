@@ -6,7 +6,7 @@ print("Empty list: ")
 PrintArr(Empty_arr)
 
 -- Initialize a list with some values
-Arr = {'Apple', 'Avocado', 'Dragonfruit', 'Grapefruit', 'Grapes', 'Hazelnut', 'Kiwi', 'Lime', 'Tangelo'}
+Arr = {'Apple', 'Avocado', 'Cherries', 'Dragonfruit', 'Grapefruit', 'Grapes', 'Hazelnut', 'Kiwi', 'Lime', 'Nectarines', 'Raspberries'}
 
 print("List with items: ")
 PrintArr(Arr)
@@ -16,8 +16,8 @@ Is_empty = #Arr == 0
 print("is_empty:", Is_empty)
 
 -- Add a new element to a list
-Arr[#Arr + 1] = "Pomegranate" -- first way
-table.insert(Arr, "Raspberries") -- another way
+Arr[#Arr + 1] = "Tangelo" -- first way
+table.insert(Arr, "Watermelon") -- another way
 print("After adding elements: ")
 PrintArr(Arr)
 
@@ -32,7 +32,7 @@ function Exists(arr, el) -- could not figure out another or one liner way of doi
 end
 
 Does_Pomegranate_exist = Exists(Arr, "Pomegranate")
-Does_Melon_exist = Exists(Arr, "Melon")
+Does_Melon_exist = Exists(Arr, "Watermelon")
 print("Does_Pomegranate_exist:", Does_Pomegranate_exist, "Does_Melon_exist:", Does_Melon_exist)
 
 -- Remove a particular element from the list

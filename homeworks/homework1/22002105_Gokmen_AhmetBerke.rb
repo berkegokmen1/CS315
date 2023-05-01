@@ -5,7 +5,7 @@ puts "empty_list_1:", empty_list_1
 puts "empty_list_2:", empty_list_2
 
 # Initialize a list with some values
-list = ['Apple', 'Avocado', 'Dragonfruit', 'Grapefruit', 'Grapes', 'Hazelnut', 'Kiwi', 'Lime', 'Tangelo']
+list = ['Apple', 'Avocado', 'Cherries', 'Dragonfruit', 'Grapefruit', 'Grapes', 'Hazelnut', 'Kiwi', 'Lime', 'Nectarines']
 another_list = Array.new(6, "Apple")
 puts "list:", list
 puts "another_list:", another_list
@@ -17,8 +17,7 @@ puts "is_empty_1:", is_empty_1, "is_empty_2:", is_empty_2
 
 # Add a new element to a list
 list << "Raspberries" # add Raspberries to the array
-list.push("Cherries") # add Cherries to the array
-list.unshift("Watermelon") # add Watermelon to the beginning
+list.push("Tangelo") # add Cherries to the array
 puts "list after adding items:", list
 
 # Check if a particular element exists in the list
