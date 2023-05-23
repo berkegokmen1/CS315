@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript - CS315 - HW2</title>
+  </head>
+  <body>
+    Ahmet Berke Gökmen - 22002105
+    <br />
+    Open the console (F12) to see the output.
+  </body>
+  <script>
+    // 1. Are formal and actial parameters type checked?
+    console.log('\n 1.');
+
+    function typeCheck(x, y) {
+      console.log(x, y);
+    }
+
+    typeCheck('a', 1);
+    typeCheck(1, '1');
+
+    // 2. Are keyword (named) parameters supported?
+    console.log('\n 2.');
+
+    function kwParameters(x, y) {
+      console.log(x, y);
+    }
+
+    // kwParameters(x: "x", y: 3) // this will cause an error (1)
+
+    // This one is valid, but not actually using named parameters
+    // What it does is that it creates a variable x, assigns the value "x" to it and returns the result, which is "x".
+    // The resulting "x" is passed into the function
+    kwParameters((x = 'x'), (y = 3)); // this will not cause an error (2)
+    console.log('accessible:', x); // we can see that newly created global x variable is accessible here
+
+    // 3. Are default paremeters supported?
+    console.log('\n 3.');
+
+    function defaultParameters(x, y = 44) {
+      console.log(x + y);
+    }
+
+    defaultParameters(10);
+
+    // 4. What are the paremeter passing methods provided?
+    console.log('\n 4.');
+
+    let k = 10; // a value
+    let arr = [1, 2, 3]; // an object
+    let obj = { a: 1 };
+    let dummyArr = [4, 5, 6];
+
+    function parameterPassing(k, arr, obj, dummyArr) {
+      k += 10; // value, original will not be affected
+      arr.push(10); // property change, original will be affected
+      obj.b = 10; // property change, original will be affected
+      dummyArr = [0]; // reassigned, original will not be affected
+      console.log('in', k, arr, obj, dummyArr);
+    }
+
+    parameterPassing(k, arr, obj, dummyArr);
+    console.log('out', k, arr, obj, dummyArr);
+
+    // 5. Can subprograms be passed as parameters? If so, how is the referencing environment of the passed subprogram bound?
+    console.log('\n 5.');
+
+    // The referencing environment is statically bound. If we comment out following param = 20, it will throw an error.
+    let param = 20;
+    const refEnvTest = () => console.log(param);
+
+    function performOperation(operation) {
+      let param = 10;
+      operation();
+    }
+
+    performOperation(refEnvTest);
+  </script>
+</html>

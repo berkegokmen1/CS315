@@ -5,12 +5,20 @@
 
 a = 5
 def quiz (q_par):
+    x = 10
     def closure(c_par):
         global a
-        print ("in closure, a=", a, "q_par=", q_par, "c_par=", c_par)
+        print ("in closure, a=", a, "q_par=", q_par, "c_par=", c_par, "x=", x)
         if (q_par > a):
            a += c_par
         else:
            return "done."
     return closure
 
+
+
+foo = quiz(10)
+
+del quiz
+
+foo(4)
