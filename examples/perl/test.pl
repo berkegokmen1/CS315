@@ -1,7 +1,7 @@
-my $var = 10;
+$var = 10;
 
 sub f1 {
-	local $var = 31;
+	my $var = 31;
 
 	sub f2 {
 		print "$var\n";
@@ -10,4 +10,4 @@ sub f1 {
 	f2;
 }
 
-f1;
+f2;
